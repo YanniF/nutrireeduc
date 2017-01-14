@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<title>Site da Denise :)</title>
+	<title>Nutri Reeduc</title>
 
 	 <meta name="description" content="">
     <meta name="keywords" content="">
@@ -22,7 +22,7 @@
 </head>
 <body>
 	
-	<div class="container-fluid">
+	<div class="container-fluid" id="home">
 		<div class="content-image">
 			<nav class="navbar">
 				<div class="container-fluid">
@@ -32,14 +32,14 @@
 							<span class="icon-bar"></span>
 							<span class="icon-bar"></span>
 						</button>
-						<a class="navbar-brand" href="index.html">Site da Denise</a>
+						<a class="navbar-brand" href="index.html">Nutri Reeduc</a>
 					</div>
 					<div class="collapse navbar-collapse" id="myNavbar">
 						<ul class="nav navbar-nav navbar-right">
-							<li><a href="#">Home</a></li>
-							<li><a href="#">Blog</a></li>
-							<li><a href="#">Sobre</a></li>
-							<li><a href="#">Contato</a></li>
+							<li><a class="active" href="#home">Home</a></li>
+							<li><a href="#blog">Blog</a></li>
+							<li><a href="#about">Sobre</a></li>
+							<li><a href="#contact">Contato</a></li>
 						</ul>
 					</div>
 				</div>
@@ -53,7 +53,7 @@
 			</header>
 		</div>
 
-		<section class="blog">
+		<section class="blog" id="blog">
 			<div class="content">
 				<div class="articles">
 					<h2>Mais sobre nutrição</h2>					
@@ -99,14 +99,14 @@
 					<div class="article-info">
 						<figure onclick="location.href='http://www.google.com';">
 							<img class="img-responsive" src="img/img-articles.jpg" alt="">
-							<figcaption><p>Ver todos os artigos</p></figcaption>
+							<figcaption><p>Ver todos os posts</p></figcaption>
 						</figure>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="about">
+		<section class="about" id="about">
 			<div class="content">
 				<div class="about-info">
 					<h2>Sobre mim</h2>
@@ -125,7 +125,7 @@
 			</div>
 		</section>
 
-		<div class="content-image">
+		<div class="content-image" id="contact">
 			<footer>
 				<h2>Entre em Contato</h2>
 				<form>
@@ -161,5 +161,6 @@
 
 	<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
 	<script src="js/vendors/bootstrap/bootstrap.min.js"></script>
+	<script src="js/main.js"></script>
 </body>
 </html>

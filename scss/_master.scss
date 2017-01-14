@@ -46,6 +46,10 @@ h2 {
 			color: $main-color;
 		}
 	}
+
+	.active {
+		color: $main-color;
+	}
 }
 
 .icon-bar {
@@ -71,19 +75,15 @@ header {
 	justify-content: center;
 
 	p {
-		margin-top: 0;
+		margin-top: 0;		
+		font-size: 2.8888em;
 		text-align: center;
 		color: $opp-color;
 		text-shadow: 5px 5px 10px #000;
 	}
 
-	p:first-child {
-		font-size: 3.333em;		
-		text-transform: uppercase;
-	}
-
 	p:last-child {
-		font-size: 2em;
+		text-transform: uppercase;
 		margin-bottom: 0;
 	}
 }
@@ -117,13 +117,21 @@ footer {
 		color: $opp-color;
 	}
 
-	.form1,
+	.form1 {
+		@include make-md-column(5);
+		@include make-md-column-offset(1);
+	}
+
 	.form2 {
-		@include make-md-column(6);
+		@include make-md-column(5);
+		@include make-md-column-offset(1);
+		@include make-md-column-pull(1);
 	}
 
 	.form3 {
-		@include make-md-column(12);
+		@include make-md-column(10);
+		@include make-md-column-offset(2);
+		@include make-md-column-pull(1);
 	}
 
 	.form3:last-child {
