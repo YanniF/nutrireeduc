@@ -4,7 +4,8 @@
 }
 
 h2 {
-	margin: 1.111em;
+	margin-top: 70px;//espaço para o título não ficar escondido pelo menu
+	margin-bottom: 1.111em;
 	font-size: 2em;
 	text-align: center;
 }
@@ -12,13 +13,13 @@ h2 {
 .navbar {
 	@include make-md-column(12);
 	
-	border-radius: 0;
-	padding: 0;
 	position: fixed;
-	background-color: #828282; //fallback color
-	background-color: rgba(0, 0, 0, 0.5);
+	padding: 0;
 	width: 100%;
 	z-index: 100;
+	background-color: #828282; //fallback color
+	background-color: rgba(0,0,0,0.5);
+	border-radius: 0;
 	
 	.container-fluid {
 		margin-left: 1.667em;
@@ -65,14 +66,15 @@ header, footer {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
-	min-height: 700px;
+	background-position: center; 
 }
 
 header {
 	background-image: url('../img/background-header.jpg');
 	display: flex;
 	align-items: center;
-	justify-content: center;
+	justify-content: center;	
+	min-height: 600px;
 
 	p {
 		margin-top: 0;		
@@ -88,9 +90,9 @@ header {
 	}
 }
 
-footer {
-	padding: 2.2222em 0 0;
-	background-image: url('../img/background-footer.jpg');
+footer {	
+	background-image: url('../img/background-footer.jpg');	
+	min-height: 700px;
 	
 	h2 {
 		color: $opp-color;
@@ -113,7 +115,7 @@ footer {
 	.btn-success {
 		font-size: 1em;
 		border: 2px solid $opp-color;
-		background-color: rgba(0,0,0, 0.5);
+		background-color: rgba(0,0,0,0.5);
 		color: $opp-color;
 	}
 
@@ -160,11 +162,13 @@ footer {
 		img {
 			display: inline;
 			-webkit-filter: grayscale(1);
+			-ms-filter: grayscale(0);
   			filter: grayscale(1);
   			transition: all 0.2s linear;
 
   			&:hover {
   				-webkit-filter: grayscale(0);
+  				-ms-filter: grayscale(0);
   				filter: grayscale(0);
   				transition: all 0.2s linear;
   			}
@@ -185,16 +189,7 @@ footer {
 	}
 }
 
-//separar arquivo
-
-.blog {
-	margin: 2.2222em 0;
-	//height: 100%;	
-
-	.articles {
-		@include make-md-column(12);
-	}
-
+.blog-index {
 	.article-info {
 		@include make-md-column(4);
 		margin-bottom: 2.2222em;
@@ -233,7 +228,7 @@ footer {
 			top: 0;
 			width: 250px;
 			height: 250px;
-			background: rgba(55,169,38, 0.9);
+			background: rgba(55,169,38,0.9);
 			color: $opp-color;
 			opacity: 0;
 			z-index: 50;
@@ -259,10 +254,27 @@ footer {
 			}
 		}
 	}
+
+	.all-posts {
+		figcaption {
+			opacity: 1;
+
+			p {
+				top: 0;
+			}
+		}
+
+		&:hover {
+			p {
+				transform: none;
+			}
+		}
+	}
 }
 
 .about {
-	margin: 0 0 3.3333em;
+	margin-top: 5px;//para separar do blog e a classe active ser aplicada
+	margin-bottom: 2.222em;
 
 	.about-info {
 		@include make-md-column(12);
@@ -319,4 +331,123 @@ footer {
 	//até aqui
 }
 
-//
+@media screen and (max-width: $resolution-md) {
+	
+	
+	/* .navbar {
+		@include make-sm-column(12);		
+	} */
+
+	header, footer {
+		@include make-sm-column(12);
+	}
+
+	footer {
+		.form1 {
+			@include make-sm-column(6);
+		}
+
+		.form2 {
+			@include make-sm-column(6);
+		}
+
+		.form3 {
+			@include make-sm-column(12);
+		}
+		
+		.media {
+			@include make-sm-column(6);
+		}
+
+		.dev {
+			@include make-sm-column(6);
+		}
+	}
+
+	.blog-index {
+		.article-info {
+			@include make-sm-column(12);
+		}
+	}
+
+	.about {
+		.about-info {
+			@include make-sm-column(12);
+		}
+
+		article {
+			@include make-sm-column(8);
+		}
+
+		.photo {
+			@include make-sm-column(3);
+			@include make-sm-column-offset(1);
+		}
+	}		
+}
+
+@media screen and (min-width: $resolution-xs) and (max-width: $resolution-sm) {
+
+	/* .navbar {
+		@include make-xs-column(12);		
+	} */
+	
+	header {
+		p {
+			font-size: 1.6666em;
+		}
+	}
+
+	header, footer {
+		@include make-xs-column(12);
+	}
+
+	footer {
+		form {
+			margin-left: 0;
+			margin-right: 0;
+		}
+
+		.form1 {
+			@include make-xs-column(12);
+		}
+
+		.form2 {
+			@include make-xs-column(12);
+		}
+
+		.form3 {
+			@include make-xs-column(12);
+		}
+		
+		.media {
+			@include make-xs-column(6);
+			padding-left: 0;
+		}
+
+		.dev {
+			@include make-xs-column(6);
+			padding-right: 0;
+		}
+	}
+
+	.blog-index {
+		.article-info {
+			@include make-xs-column(12);
+		}
+	}
+
+	.about {
+		.about-info {
+			@include make-xs-column(12);
+		}
+
+		article {
+			@include make-xs-column(12);
+		}
+
+		.photo {
+			display: none;
+		}
+	}
+}

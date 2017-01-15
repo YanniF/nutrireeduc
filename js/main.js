@@ -1,28 +1,48 @@
-$(document).ready(function () {
+(function($){
+    
+    var jump = function(e)
+    {
+       if (e){
+           e.preventDefault();
+           var target = $(this).attr("href");
+       }else{
+           var target = location.hash;
+       }
 
-    $(document).on("scroll", onScroll);
+       $('html,body').animate(
+       {
+           scrollTop: $(target).offset().top
+       },800,function()
+       {
+           location.hash = target;
+           removeHash();
 
-    $('a[href*="#"]').on('click', function (e) {
-      e.preventDefault();
+           $(document).on("scroll", onScroll);
+       });
 
-        $(document).off("scroll");
-         $('a').each(function () {
-            $(this).removeClass('active');
-        })
-        $(this).addClass('active');
+    }
 
-        var target = this.hash;
-        $target = $(target);
+    $('html, body').hide()
 
-       $('html, body').stop().animate({
-            'scrollTop': $target.offset().top+2
-        }, 800, 'swing', function () {
-            window.location.hash = target;
-            removeHash();
-            $(document).on("scroll", onScroll);
-        });
+    $(document).ready(function()
+    {
+        $(document).on("scroll", onScroll);
+
+        $('a[href^="#"]').bind("click", jump);
+
+        if (location.hash){
+            setTimeout(function(){
+                $('html, body').scrollTop(0).show()
+                jump()
+            }, 0);
+        }else{
+          $('html, body').show()
+        }
+
+
     });
-});
+  
+})(jQuery)
 
 function onScroll(event){
     var scrollPos = $(document).scrollTop();
