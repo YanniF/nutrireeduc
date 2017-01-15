@@ -1,5 +1,11 @@
-html, body, .container-fluid {
+html, 
+body, 
+.container-fluid {
 	height: 100%;
+}
+
+.content {
+	@include make-row();
 }
 
 body {	
@@ -18,11 +24,6 @@ body {
 	}
 }
 
-textarea { 
+textarea {
 	resize: none; 
 }
-
-.content {
-	@include make-row();
-}
-
