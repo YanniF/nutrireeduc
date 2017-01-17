@@ -6,7 +6,7 @@
 h2 {
 	margin-top: 70px;//espaço para o título não ficar escondido pelo menu
 	margin-bottom: 1.111em;
-	font-size: 36px;
+	font-size: 2em;
 	text-align: center;
 }
 
@@ -14,9 +14,9 @@ h2 {
 	@include make-md-column(12);
 	
 	position: fixed;
+	padding: 0;
 	width: 100%;
 	z-index: 100;
-	padding: 0;
 	background-color: #828282; //fallback color
 	background-color: rgba(0,0,0,0.5);
 	border-radius: 0;
@@ -36,8 +36,8 @@ h2 {
 		margin-bottom: 5px;
 	}
 
-	a {
-		color: $opp-color;	
+	a {	
+		color: $opp-color;		
 	}
 
 	li {
@@ -56,6 +56,7 @@ h2 {
 .icon-bar {
 	background-color: $opp-color;
 }
+
 
 header, footer {
 	@include make-md-column(12);
@@ -78,21 +79,21 @@ header {
 	p {
 		margin-top: 0;		
 		font-size: 2.8888em;
-		text-align: center;
 		color: $opp-color;
+		text-align: center;
+		text-transform: uppercase;
 		text-shadow: 5px 5px 10px #000;
 	}
 
-	p:last-child {
-		text-transform: uppercase;
+	p:last-child {		
 		margin-bottom: 0;
 	}
 }
 
-footer {
-	min-height: 700px;
+footer {	
 	background-image: url('../img/background-footer.jpg');	
-
+	min-height: 700px;
+	
 	h2 {
 		color: $opp-color;
 	}
@@ -161,11 +162,13 @@ footer {
 		img {
 			display: inline;
 			-webkit-filter: grayscale(1);
+			-ms-filter: grayscale(0);
   			filter: grayscale(1);
   			transition: all 0.2s linear;
 
   			&:hover {
   				-webkit-filter: grayscale(0);
+  				-ms-filter: grayscale(0);
   				filter: grayscale(0);
   				transition: all 0.2s linear;
   			}
@@ -182,7 +185,8 @@ footer {
 		padding-right: 4.6428em;
 		text-align: right;
 		font-size: 0.777em;
-		color: $opp-color
+		color: $opp-color;
+		text-shadow: 5px 5px 10px #000;
 	}
 }
 
@@ -329,32 +333,17 @@ footer {
 }
 
 @media screen and (max-width: $resolution-md) {
-		
-	.navbar {
-		@include make-sm-column(12);
-
-		position: fixed;
-
-		li {
-			a {
-				font-size: 1.5555em;
-			}
-		}
-
-		.navbar-brand {
-			font-size: 1.5555em;
-		}
-	}
+	
+	
+	/* .navbar {
+		@include make-sm-column(12);		
+	} */
 
 	header, footer {
 		@include make-sm-column(12);
 	}
 
 	footer {
-		form {
-			font-size: 1.625em;
-		}
-
 		.form1 {
 			@include make-sm-column(6);
 		}
@@ -373,21 +362,12 @@ footer {
 
 		.dev {
 			@include make-sm-column(6);
-
-			font-size: 1em;
 		}
 	}
 
 	.blog-index {
 		.article-info {
 			@include make-sm-column(12);
-		}
-
-
-		figure {
-			h3 {
-				font-size: 1.625em;
-			}
 		}
 	}
 
@@ -398,14 +378,6 @@ footer {
 
 		article {
 			@include make-sm-column(8);
-
-			p {
-				font-size: 1.625em;
-			}
-
-			p:first-child {
-				font-size: 1.75em;
-			}
 		}
 
 		.photo {
@@ -417,10 +389,9 @@ footer {
 
 @media screen and (min-width: $resolution-xs) and (max-width: $resolution-sm) {
 
-	.navbar {
-		@include make-xs-column(12);
-		position: fixed;
-	}
+	/* .navbar {
+		@include make-xs-column(12);		
+	} */
 	
 	header {
 		p {
@@ -463,13 +434,17 @@ footer {
 
 	.blog-index {
 		.article-info {
-			@include make-xs-column(12);
+			@include make-xs-column(12);			
+		}
+
+		.xs-hidden {
+			display: none;
 		}
 	}
 
 	.about {
 		.about-info {
-			@include make-xs-column(12);
+			@include make-xs-column(12);			
 		}
 
 		article {
